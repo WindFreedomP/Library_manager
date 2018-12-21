@@ -61,7 +61,7 @@
                         href="{% url 'publisher_list' %}">出版社列表页</a></li>
                 <li class="{% block book_list %}{% endblock book_list %}"><a href="{% url 'book_list' %}">书籍列表</a></li>
                 <li class="{% block author_list %}{% endblock author_list %}"><a href="{% url 'author_list' %}">作者列表</a></li>
-                <li class="{% block read_list%}{% endblock read_list %}"><a href="#">读书笔记</a></li>
+                <li class="{% block read_list%}{% endblock read_list %}"><a href="{% url 'blog:blog_title'%}">阅读交流</a></li>
                 <li class="{% block rend_list%}{% endblock rend_list %}"><a href="#">已借书籍</a></li>
             </ul>
 

@@ -43,4 +43,7 @@ urlpatterns = [
 
     #用户管理
     url(r'^account/',include(('account.urls','account'),namespace='account')),
+
+    #阅读交流
+    url(r'^blog/',include(('blog.urls','blog'),namespace='blog')),
 ]
