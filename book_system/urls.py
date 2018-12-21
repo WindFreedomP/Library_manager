@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from app01 import views
+from django.conf.urls import include
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -39,4 +40,7 @@ urlpatterns = [
     url(r'^add_author/$', views.add_author, name='add_author'),
     url(r'^delete_author/([0-9]+)/$', views.delete_author, name='delete_author'),
     url(r'^edit_author/([0-9]+)/$', views.edit_author, name='edit_author'),
+
+    #用户管理
+    url(r'^account/',include(('account.urls','account'),namespace='account')),
 ]

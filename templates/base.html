@@ -14,6 +14,12 @@
     <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'dashboard.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css' %}">
+    <style>
+    body{
+        background-image:url('/static/images/hqu.jpg');
+        background-repeat:no_repeat;
+        background-size:cover;
+    }</style>
 </head>
 
 <body>
@@ -31,11 +37,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">占坑专用</a></li>
-                <li><a href="#">占坑专用</a></li>
+				{%if user.is_authenticated %}
+					<li><a href="#">{{user.username}}</a></li>
+					<li><a href="{% url 'account:user_logout' %}">Logout</a></li>
+				{%else%}
+                	<li><a href="{%url 'account:user_login'%}">登录</a></li>
+                	<li><a href="#">注册</a></li>
+				{%endif%}
             </ul>
             <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="占坑专用...">
+                <input type="text" class="form-control" placeholder="输入书名...">
                 <input type="submit" class="btn btn-danger" value="搜索">
             </form>
         </div>
@@ -50,6 +61,8 @@
                         href="{% url 'publisher_list' %}">出版社列表页</a></li>
                 <li class="{% block book_list %}{% endblock book_list %}"><a href="{% url 'book_list' %}">书籍列表</a></li>
                 <li class="{% block author_list %}{% endblock author_list %}"><a href="{% url 'author_list' %}">作者列表</a></li>
+                <li class="{% block read_list%}{% endblock read_list %}"><a href="#">读书笔记</a></li>
+                <li class="{% block rend_list%}{% endblock rend_list %}"><a href="#">已借书籍</a></li>
             </ul>
 
         </div>
@@ -95,9 +108,9 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-
 <script src="{% static 'jquery-3.3.1.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
+{%include "footer.html"%}
 </body>
 </html>
