@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'dashboard.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css' %}">
+    <style>
+    body{
+        background-image:url('/static/images/read.jpg');
+        background-repeat:no_repeat;
+        background-size:cover;
+    }
+		.vintage1{
+		background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+		text-shadow: 5px -5px black, 4px -4px white;
+		font-weight: bold;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text }
+	</style>
+</head>
+<body>
+		<div class="row text-center vertical-middle-sm">
+			<h1 class="vintage1">品味阅读,分享经典</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-md-8">
+				<ul>
+					{% for blog in blogs %}
+						<li><a href="{{blog.id}}">{{blog.title}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<h2>广告位</h2>
+				<p>xzper dashuaibi</p>
+			</div>
+		</div>
+    
+</body>
+</html>

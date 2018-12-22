@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'dashboard.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/font-awesome.min.css' %}">
+    <style>
+    body{
+        background-image:url('/static/images/read.jpeg');
+        background-position: right center;
+        background-repeat:no_repeat;
+        background-size:cover;
+    }
+	.vintage1{
+	background: #EEE url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAHklEQVQImWNkYGBgYGD4//8/A5wF5SBYyAr+//8PAPOCFO0Q2zq7AAAAAElFTkSuQmCC) repeat;
+	text-shadow: 5px -5px black, 4px -4px white;
+	font-weight: bold;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text }
+
+	<!--footer css-->
+	.footer{background:#4D4D4D; padding:0px; margin:0 auto; width:100%; height:40px;}
+	.foot_box{padding:0px; margin:0 auto; width:980px; height:40px;font-size:14px; line-height:40px; color:#fff;}
+	.box_left{ padding:0px; margin:0; float:left; width:500px; height:40px;}
+	.box_left a{ color:#fff; }
+	.box_right{ padding:0px; margin:0; float:right; width:400px;}
+	</style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'index' %}">图书信息管理系统</a>
+                <a class="navbar-brand" href="{% url 'blog:blog_title' %}">返回目录</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {%if user.is_authenticated %}
+                        <li><a href="#">{{user.username}}</a></li>
+                        <li><a href="{% url 'account:user_logout' %}">Logout</a></li>
+                    {%else%}
+                        <li><a href="{%url 'account:user_login'%}">登录</a></li>
+                        <li><a href="#">注册</a></li>
+                    {%endif%}
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="输入文章关键词...">
+                    <input type="submit" class="btn btn-danger" value="搜索文章">
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!--{%include "blog/footer.html" %}-->
+    
+</body>
+</html>

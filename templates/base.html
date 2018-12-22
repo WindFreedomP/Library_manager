@@ -57,12 +57,12 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="{% block publisher_list %}{% endblock publisher_list %}"><a
-                        href="{% url 'publisher_list' %}">出版社列表页</a></li>
+                <li class="{% block rend_list%}{% endblock rend_list %}"><a href="#">已借书籍</a></li>
+                <li class="{% block publisher_list %}{% endblock publisher_list %}">
+                    <a href="{% url 'publisher_list' %}">出版社列表页</a></li>
                 <li class="{% block book_list %}{% endblock book_list %}"><a href="{% url 'book_list' %}">书籍列表</a></li>
                 <li class="{% block author_list %}{% endblock author_list %}"><a href="{% url 'author_list' %}">作者列表</a></li>
-                <li class="{% block read_list%}{% endblock read_list %}"><a href="{% url 'blog:blog_title'%}">阅读交流</a></li>
-                <li class="{% block rend_list%}{% endblock rend_list %}"><a href="#">已借书籍</a></li>
+                <li class="{% block read_list%}{% endblock read_list %}"><a href="{% url 'blog:blog_title'%}">阅读分享</a></li>
             </ul>
 
         </div>
@@ -111,6 +111,5 @@
 <script src="{% static 'jquery-3.3.1.js' %}"></script>
 <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
-{%include "footer.html"%}
 </body>
 </html>

@@ -1,0 +1,9 @@
+{% extends "blog/blog_base.html"%}
+{% block title %}blog article{% endblock %}
+{%block content %}
+<h1 style="text-align: center">{{articles.title}}</h1>
+<div class="row">
+    <p style="text-align: center"><span>{{articles.author.username}}</span></p>
+    <div style="text-indent:50px; font-size: 20px ;margin-bottom:10.5pt;">{{articles.body}}</div>
+</div>
+{%endblock%}
