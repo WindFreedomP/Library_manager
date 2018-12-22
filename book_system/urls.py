@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^edit_author/([0-9]+)/$', views.edit_author, name='edit_author'),
 
     #用户管理
+    url(r'^lend_list/',views.lend_list,name='lend_list'),
     url(r'^account/',include(('account.urls','account'),namespace='account')),
 
     #阅读交流

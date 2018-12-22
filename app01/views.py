@@ -19,6 +19,9 @@ class AddPublisher(View):
 
 
 # =========Function Based View==================
+def lend_list(request):
+    return render(request, 'lend_list.html')
+
 def publisher_list(request):
     ret = models.Publisher.objects.all()
     return render(request, 'publisher_list.html', {'publisher_list': ret})

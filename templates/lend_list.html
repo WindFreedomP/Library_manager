@@ -1,34 +1,16 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    管理系统|书籍列表页
+    管理系统|添加作者
 {% endblock title %}
-{%block head_other%}
-<style type="text/css">
-    .mb{
-        width:50px;
-        height: 18px;
-        border-radius: 10px;
-        border: none;
-        outline: none;
-        -webkit-appearance: none;
-        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    }
-</style>
-<script>
-    function fun()
-    {
-        alert("借书成功!");
-    }
-</script>
-{%endblock%}
 
 {% block main %}
-    <h1 class="page-header">书籍管理页面</h1>
+    <h1 class="page-header">作者管理页面</h1>
 
     <!-- 面板开始 -->
     <div class="panel panel-primary">
-        <div class="panel-heading">书籍列表 <i class="fa fa-thumb-tack pull-right"></i></div>
+        <!-- Default panel contents -->
+        <div class="panel-heading">已借书籍<i class="fa fa-thumb-tack pull-right"></i></div>
         <div class="panel-body">
             <div class="row" style="margin-bottom: 15px">
                 <div class="col-md-4">
@@ -39,12 +21,6 @@
                                 </span>
                     </div><!-- /input-group -->
                 </div><!-- /.col-md-4 -->
-                <div class="col-md-3 pull-right">
-                    <a href="{% url 'add_book' %}" class="btn btn-success pull-right"><i class="fa fa-plus fa-fw"></i>添加书籍</a>
-                    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">新增
-                    </button>
-                </div>
-
             </div><!-- /.row -->
 
             <table class="table table-bordered">
@@ -67,18 +43,19 @@
                         <td><a class="btn btn-danger" href="{% url 'delete_book' book.id %}"><i
                                 class="fa fa-trash-o fa-fw"></i>删除</a>&nbsp
                             <a class="btn btn-info" href="{% url 'edit_book' book.id %}"><i
-                                    class="fa fa-pencil fa-fw"></i>编辑</a>
-                            <a class="btn btn-info" href="#" ><button onclick="fun()" class="mb">借书</button></a>
-                        </td>
+                                    class="fa fa-pencil fa-fw"></i>编辑</a></td>
+                            <a class="btn btn-info" href="#"><i
+                                    class="fa fa-pencil fa-fw"></i>借书</a></td>
                     </tr>
                 {% endfor %}
                 </tbody>
             </table>
-        </div>
-    </div>
 
+        </div>
+
+    </div>
 {% endblock main %}
 
-{% block book_list %}
-    active
-{% endblock book_list %}
+{% block lend_list%}
+active
+{% endblock lend_list%}
