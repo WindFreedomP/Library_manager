@@ -8,4 +8,4 @@ def blog_title(request):
 
 def blog_content(request,a_id):
     article=BlogArticle.objects.get(id=a_id)
-    return render(request,"blog/content.html",{"article":article})
+    return render(request,"blog/content.html",{"articles":article})
