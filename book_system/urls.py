@@ -47,4 +47,5 @@ urlpatterns = [
 
     #阅读交流
     url(r'^blog/',include(('blog.urls','blog'),namespace='blog')),
+    url(r'^article/',include(('article.urls','article'),namespace='article')),
 ]
